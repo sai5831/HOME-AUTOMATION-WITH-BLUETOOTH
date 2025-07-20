@@ -19,3 +19,7 @@ The evolution of home automation has transformed the way we interact with our ev
 #INPUT
 
 ![Image](https://github.com/user-attachments/assets/efa52dc0-0e05-4fa5-bcd1-ee182b749792)
+
+#OUTPUT
+
+https://github.com/user-attachments/assets/3af54aa5-fd46-4f56-96f4-45098ead3cc2
