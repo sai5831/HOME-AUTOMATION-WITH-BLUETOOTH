@@ -1,0 +1,41 @@
+#include <SoftwareSerial.h>
+
+#define LED_PIN 9      // LED connected to pin 9
+#define MOTOR_PIN 10   // DC motor connected to pin 10
+
+SoftwareSerial BT(2, 3); // RX, TX for HC-05 module
+
+// Function to initialize system setup
+void setup() {
+    pinMode(LED_PIN, OUTPUT);  // Set LED pin as output
+    pinMode(MOTOR_PIN, OUTPUT); // Set motor pin as output
+    BT.begin(9600);  // Start Bluetooth communication
+    Serial.begin(9600);  // Start Serial monitor for debugging
+}
+
+// Function to read Bluetooth commands and control devices accordingly
+void loop() {
+    if (BT.available()) {  // Check if Bluetooth data is available
+        char command = BT.read();  // Read received command
+
+        // LED Control
+        if (command == '1') {
+            digitalWrite(LED_PIN, HIGH); // Turn LED ON
+            Serial.println("LED ON"); // Print status to Serial monitor
+        } 
+        else if (command == '0') {
+            digitalWrite(LED_PIN, LOW); // Turn LED OFF
+            Serial.println("LED OFF"); // Print status to Serial monitor
+        }
+
+        // DC Motor Control
+        if (command == '2') {
+            digitalWrite(MOTOR_PIN, HIGH); // Turn Motor ON
+            Serial.println("Motor ON"); // Print status to Serial monitor
+        } 
+        else if (command == '3') {
+            digitalWrite(MOTOR_PIN, LOW); // Turn Motor OFF
+            Serial.println("Motor OFF"); // Print status to Serial monitor
+        }
+    }
+}
